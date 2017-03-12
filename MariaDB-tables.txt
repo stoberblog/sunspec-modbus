@@ -1,0 +1,44 @@
+
+DROP TABLE IF EXISTS `interval`;
+CREATE TABLE `interval` (
+  `id` int unsigned NOT NULL auto_increment,
+  `epoch` int unsigned NOT NULL,
+  `DC_s1_v` float,
+  `DC_s2_v` float,
+  `pf_feed` float,
+  `pf_inv` float,
+  `pow_prod` float,
+  `pow_feed` float,
+  `eng_tot_prod` int unsigned,
+  `eng_tot_out` int unsigned,
+  `eng_tot_in` int unsigned,
+  `volt_feed` float,
+  `cur_inv` float,
+  PRIMARY KEY  (`id`)
+);
+
+DROP TABLE IF EXISTS `daily`;
+CREATE TABLE `daily` (
+  `id` int unsigned NOT NULL auto_increment,
+  `epoch` int unsigned NOT NULL,
+  `thres_rise_epoch` int unsigned,
+  `thres_fall_epoch` int unsigned,
+  `thres_perc_exp` float,
+  `pow_max` float,
+  `eng_day` int unsigned,
+  `eng_tot_prod` bigint unsigned,
+  `eng_tot_out` int unsigned,
+  `eng_tot_in` int unsigned,
+  `error_flag` bit,
+  PRIMARY KEY  (`id`)
+);
+
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE `log` (
+  `id` int unsigned NOT NULL auto_increment,
+  `epoch` int unsigned NOT NULL,
+  `level` int unsigned,
+  `message` text NOT NULL,
+  PRIMARY KEY  (`id`)
+);
+
