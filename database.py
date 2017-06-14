@@ -55,6 +55,7 @@ class interval_struct:
     eng_tot_in  = 0
     volt_feed   = 0.0
     cur_inv     = 0.0
+    freq_feed = 50.0
 
 class daily_struct:
     epoch               = 0
@@ -210,9 +211,10 @@ def maria_storeInterval(dataStructure):
     if not hasattr(dataStructure, 'epoch'):
         return False
     try:        
-        databaseCursor.execute("INSERT INTO `interval` (epoch,DC_s1_v,DC_s2_v,pf_feed,pf_inv,pow_prod,pow_feed,eng_tot_prod,eng_tot_out,eng_tot_in,volt_feed,cur_inv) VALUES ("+
+        databaseCursor.execute("INSERT INTO `interval` (epoch,DC_s1_v,DC_s2_v,pf_feed,pf_inv,pow_prod,pow_feed,eng_tot_prod,eng_tot_out,eng_tot_in,volt_feed,cur_inv,freq_feed) VALUES ("+
                            str(dataStructure.epoch)+","+str(dataStructure.DC_s1_v)+","+str(dataStructure.DC_s2_v)+","+str(dataStructure.pf_feed)+","+str(dataStructure.pf_inv)+","+str(dataStructure.pow_prod)+","+
-                            str(dataStructure.pow_feed)+","+str(dataStructure.eng_tot_prod)+","+str(dataStructure.eng_tot_out)+","+str(dataStructure.eng_tot_in)+","+str(dataStructure.volt_feed)+","+str(dataStructure.cur_inv)+")")
+                            str(dataStructure.pow_feed)+","+str(dataStructure.eng_tot_prod)+","+str(dataStructure.eng_tot_out)+","+str(dataStructure.eng_tot_in)+","+
+                            str(dataStructure.volt_feed)+","+str(dataStructure.cur_inv)+","+str(dataStructure.freq_feed)+")")
             
     except mariadb.Error as error:
         print("Error: {}".format(error))

@@ -12,11 +12,11 @@ on windows
 You may need to navigate to the location of python or add the path to environment variables
 
 MariaDB Create
-DROP DATABASE IF EXISTS solarMB;
-CREATE DATABASE solarMB;
+DROP DATABASE IF EXISTS solar;
+CREATE DATABASE solar;
 
 
 MariaDB Permissions
 GRANT all
 ON solarDB.*
-TO solarUser@localhost identified by 'solarPasswd';
+TO sUser@localhost identified by 'sPasswd';

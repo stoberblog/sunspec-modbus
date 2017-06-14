@@ -186,12 +186,16 @@ def capture():
         captureData.volt_feed = sunspecModbus.mtr_ACVoltageAverage_V() # (float)
         if errorModbus(Device.METER, "mtr_ACVoltageAverage_V()") or math.isnan(captureData.volt_feed):
             captureData.volt_feed = 0.0
+        captureData.freq_feed = sunspecModbus.mtr_ACFreq_Hz() # (float)
+        if errorModbus(Device.METER, "mtr_ACFreq_Hz()") or math.isnan(captureData.freq_feed):
+            captureData.freq_feed = 50.0
     else:
         captureData.pf_feed = 0.0
         captureData.pow_feed = 0.0
         captureData.eng_tot_out = 0
         captureData.eng_tot_in = 0
         captureData.volt_feed = 0.0
+        captureData.freq_feed = 50.0
         
     
     database.storeInterval(captureData)

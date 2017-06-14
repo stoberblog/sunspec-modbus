@@ -5,8 +5,8 @@
 """
 
 # MODBUS DETAILS
-INVERTER_IP = "192.168.1.1"
-MODBUS_PORT = 502
+INVERTER_IP = "192.168.1.29"
+MODBUS_PORT = 7502
 METER_ADDR = 240
 MODBUS_TIMEOUT = 30 #seconds to wait before failure
 
@@ -16,9 +16,9 @@ METER_INSTALLED = True
 # DATABASE
 DATABASE_TYPE = "mariadb"   # Current options: mariadb
 DATABASE_ADDR = "127.0.0.1"
-DATABASE_USER = "solarUser"
-DATABASE_PASSWD = "solarPassed"
-DATABASE_DB = "solarDB"
+DATABASE_USER = "sUser"
+DATABASE_PASSWD = "sPasswd"
+DATABASE_DB = "solarMB"
 
 #SCHEDULER
 SCHED_INTERVAL = 1          # Minutes between recollecting new data
