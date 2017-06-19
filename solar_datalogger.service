@@ -1,0 +1,10 @@
+[Unit]
+Description=Solar Power Datalogger
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3.4 /usr/scripts/solar_datalogger/collectData.py
+
+[Install]
+WantedBy=multi-user.target
